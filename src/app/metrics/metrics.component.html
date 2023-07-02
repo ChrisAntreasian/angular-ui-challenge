@@ -1,0 +1,17 @@
+<main>
+  <mat-toolbar>
+    {{ layoutDetails.displayName }}
+  </mat-toolbar>
+  <mat-grid-list cols="12">
+    <mat-grid-tile  *ngFor="let ld of layoutDetails.layout" [colspan]="ld.width">
+      <mat-grid-tile-header>{{ ld.label }}</mat-grid-tile-header>
+      <div class='metric-grid' >
+        <mat-grid-list cols="12">
+          <mat-grid-tile  *ngFor="let elem of ld.elements" [colspan]="elem.width">
+            {{ elem.name }}{{ data.dataPoints[elem.name] }}
+          </mat-grid-tile>
+        </mat-grid-list>  
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</main>
