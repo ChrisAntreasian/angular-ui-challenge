@@ -2,6 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { FieldDefinition, backendDataResponse, newLayoutResponse } from 'data/mock-response';
 import { defaultLayoutDetails, defaultMetricPoints } from 'data/default-mock';
 import { CurrencyPipe, DecimalPipe, PercentPipe, DatePipe } from '@angular/common';
+import { guardNum, sumArr } from '../lib/number';
 
 const pipesDict = {
   "datetime": (val: string | number) => new DatePipe("en-US").transform(val),
@@ -15,7 +16,7 @@ const pipesDict = {
 })
 export class MetricFormatPipe implements PipeTransform{
     transform(val: string | number, fd: FieldDefinition) {
-      if (!fd.format || fd.format === "none") return val;
+      if (!fd.format || fd.format === "none" || val === "-") return val;
       return pipesDict[fd.format](val, fd)
     }
 }
@@ -26,11 +27,14 @@ export class MetricFormatPipe implements PipeTransform{
   styleUrls: ['./metrics.component.scss'],
 })
 export class MetricsComponent implements OnInit {
+  title = 'metrics-page';
+
   layoutDetails = defaultLayoutDetails;
   metricData = defaultMetricPoints;
-  tableCols: string[] = [];
-  wToPerc = (w: number) => w / 12 * 100
   
+  tableCols: string[] = [];
+  wToPerc = (w: number) => w / 12 * 100;
+
   ngOnInit() {
     this.layoutDetails = newLayoutResponse;
     this.metricData = backendDataResponse
@@ -38,6 +42,24 @@ export class MetricsComponent implements OnInit {
       .filter(_ => _.name === "summary")[0].elements[0].fields
       ?.map(_ => _.name) || [];
   }
+  
+  private aggDict = {
+    "sum": sumArr,
+    "average": (vals: number[]) => sumArr(vals) / vals.length
+  }
+  handleTableFooter(k: string) {
+    
+    const fieldDef = this.layoutDetails.fieldDefinitions[k];
+    if(k === "channel") return "Total";
+    if (fieldDef.aggFn === "none") return "-";
 
-  title = 'metrics-page';
+    const d = this.metricData.dataSets[0].data.map(_ => {
+      const v = _[k]
+      if (guardNum(v)) return v;
+      return 0;
+    });
+
+    return this.aggDict[fieldDef.aggFn](d);
+  };
+
 }
