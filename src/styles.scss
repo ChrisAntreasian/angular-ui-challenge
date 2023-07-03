@@ -34,10 +34,6 @@ $m-blue-palette: (
  )
 );
 
-// $metrics-typography: mat.define-typography-config(
-//   $font-family: "Helvetica Neue", "Helvetica",  "Arial"
-// );
-
 $metrics-page-primary: mat.define-palette($m-blue-palette);
 $metrics-page-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 

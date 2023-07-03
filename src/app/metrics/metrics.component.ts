@@ -15,7 +15,7 @@ const pipesDict = {
 })
 export class MetricFormatPipe implements PipeTransform{
     transform(val: string | number, fd: FieldDefinition) {
-      if (!fd.format || fd.format === "none") return;
+      if (!fd.format || fd.format === "none") return val;
       return pipesDict[fd.format](val, fd)
     }
 }
@@ -29,6 +29,7 @@ export class MetricsComponent implements OnInit {
   layoutDetails = defaultLayoutDetails;
   metricData = defaultMetricPoints;
   tableCols: string[] = [];
+  wToPerc = (w: number) => w / 12 * 100
   
   ngOnInit() {
     this.layoutDetails = newLayoutResponse;
