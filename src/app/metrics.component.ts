@@ -2,7 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { FieldDefinition, backendDataResponse, newLayoutResponse } from 'data/mock-response';
 import { defaultLayoutDetails, defaultMetricPoints } from 'data/default-mock';
 import { CurrencyPipe, DecimalPipe, PercentPipe, DatePipe } from '@angular/common';
-import { guardNum, sumArr } from '../lib/number';
+import { guardNum, sumArr } from './lib/number';
 
 const pipesDict = {
   "datetime": (val: string | number) => new DatePipe("en-US").transform(val),
