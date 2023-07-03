@@ -50,6 +50,13 @@ h5.data-label {
 // @TODO: some fields are right aligned others are left aligned
 .cdk-table {
   font-size: 14px;
+  .mdc-data-table__cell, 
+  .mdc-data-table__header-cell {
+    padding: 0 8px;
+  }
+  .cdk-header-row {
+    height: 40px
+  }
   th {
     font-size: 12px;
     font-weight: 700;
@@ -57,6 +64,7 @@ h5.data-label {
     white-space: nowrap;
     background-color: white;
     color: var(--blue);
+    border-color: var(--grey-dark);
   }
   tr {
     font-weight: 400;
@@ -68,5 +76,11 @@ h5.data-label {
   }
   .cdk-row {
     height: 2.5rem;
+  }
+}
+.DATA_SET {
+  h4 {
+    font-size: 18px;
+    font-weight: 400;
   }
 }
