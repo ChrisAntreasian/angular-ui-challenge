@@ -54,8 +54,13 @@ h5.data-label {
   .mdc-data-table__header-cell {
     padding: 0 8px;
   }
-  .cdk-header-row {
+  .cdk-header-row,
+  .cdk-footer-row {
     height: 40px
+  }
+  td.cdk-footer-cell {
+    border-top: 1px solid var(--grey-dark);
+    border-top: 1px solid var(--grey-dark);
   }
   th {
     font-size: 12px;
@@ -74,9 +79,11 @@ h5.data-label {
       background-color: var(--grey-md);
     }
   }
+
   .cdk-row {
     height: 2.5rem;
   }
+
 }
 .DATA_SET {
   h4 {

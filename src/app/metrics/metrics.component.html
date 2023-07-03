@@ -21,8 +21,6 @@
         </div>
   
         <ng-template #elseBlock>
-          <!-- @TODO fix selecting array item by 0  index feels dirty but there is only one -->
-          <!-- @TODO footer row for accumulating data -->
           <div>
             <table mat-table [dataSource]="metricData.dataSets[0].data">            
               <ng-container *ngFor="let f of ld.elements[0].fields"  [matColumnDef]="f.name">
