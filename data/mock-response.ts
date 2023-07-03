@@ -16,7 +16,7 @@ interface ElementGroup {
   name: string;
   label: string;
   type: ElementType;
-  width?: number;
+  width: number;
   elements: Element[];
 }
 
@@ -34,10 +34,6 @@ interface DatasetFields {
   name: string;
 }
 
-interface FieldDefinitions {
-  [index: string]: FieldDefinition;
-}
-
 type Format = 'datetime' | 'currency' | 'percent' | 'number' | 'none';
 type Type = 'string' | 'double' | 'datetime';
 
@@ -47,6 +43,10 @@ interface FieldDefinition {
   type: Type;
   digitsInfo?: string;
   aggFn: 'none' | 'sum' | 'average';
+}
+
+interface FieldDefinitions {
+  [index: string]: FieldDefinition;
 }
 
 interface LayoutResponse {
@@ -526,5 +526,7 @@ export {
   newLayoutResponse, 
   backendDataResponse, 
   type LayoutResponse, 
-  type FullDataResponse 
+  type FullDataResponse,
+  type ElementGroup,
+  type FieldDefinition
 };

@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { MetricsComponent } from './metrics.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MetricFormatPipe, MetricsComponent } from './metrics.component';
+import {MatTableModule} from '@angular/material/table'
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/common';
 // @TODO downgrade angular to 13
 @NgModule({
   declarations: [
-    MetricsComponent
+    MetricsComponent,
+    MetricFormatPipe
   ],
   imports: [
     BrowserModule,
-    MatGridListModule,
     MatToolbarModule,
+    MatTableModule
   ],
-  providers: [],
-  bootstrap: [MetricsComponent]
+  providers: [
+    CurrencyPipe,
+    PercentPipe,
+    DecimalPipe
+  ],
+  bootstrap: [
+    MetricsComponent
+  ]
 })
 export class MetricsModule { }

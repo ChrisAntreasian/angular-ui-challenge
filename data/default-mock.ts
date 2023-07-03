@@ -1,4 +1,4 @@
-import { FullDataResponse, LayoutResponse } from "./mock-response";
+import { ElementGroup, FullDataResponse, LayoutResponse } from "./mock-response";
 
 export const defaultLayoutDetails: LayoutResponse = {
   displayName: "", 

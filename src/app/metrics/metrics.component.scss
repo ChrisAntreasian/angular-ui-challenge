@@ -4,7 +4,17 @@ body {
 .wrap {
   max-width: 1200px;
 }
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-.metric-grid {
-  min-width: 100%;
+h5.data-label {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0 0 1rem;
+}
+.data-val {
+  font-size: 2rem;
+  color: var(--blue)
 }
