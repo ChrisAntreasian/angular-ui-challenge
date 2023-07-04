@@ -92,25 +92,22 @@ h5.data-label {
       background-color: var(--grey-md);
     }
   }
+  .cdk-row,
   .cdk-header-row,
   .cdk-footer-row {
     height: 2.5rem
   }
-  .cdk-row {
-    height: 2.5rem;
-  }
   td.cdk-cell,
-  th.cdk-header-cell {
+  th.cdk-header-cell,
+  td.cdk-footer-cell {
     text-align: right;
+    &.channel,
+    &.segment,
+    &.tactic {
+      text-align: left;
+    }
   }
-  td.cdk-cell.channel,
-  th.cdk-header-cell.channel,
-  td.cdk-cell.segment,
-  th.cdk-header-cell.segment,
-  td.cdk-cell.tactic,
-  th.cdk-header-cell.tactic {
-    text-align: left;
-  }
+
   td.cdk-footer-cell {
     border-top: 1px solid var(--grey-dark);
     border-top: 1px solid var(--grey-dark);
