@@ -5,7 +5,7 @@ import { MetricFormatPipe, MetricsComponent } from './metrics.component';
 import {MatTableModule} from '@angular/material/table'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CurrencyPipe, DecimalPipe, PercentPipe } from '@angular/common';
-// @TODO downgrade angular to 13
+
 @NgModule({
   declarations: [
     MetricsComponent,

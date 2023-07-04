@@ -1,78 +1,84 @@
-body {
-  font-size: 16px;
-}
-// @TODO pick a unit type
-// @TODO double  check file organization
 header {
   position: fixed;
   width: 100%;
   background-color: var(--blue);
   color: white;
-  height: 50px;
-  padding: 0 1rem;
+  height: 3.125rem;
   h1 {
     font-size : 1.25rem;
-    line-height: 50px;
-    margin: 0;
+    line-height: 3.125rem;
+    margin: 0 0 0 1rem;
+
   }
 }
-.flex-center {
-  display: flex;
-  justify-content: center;
+.nav {
+  width: 9.5rem;
+  font-size: 0.875rem;
+  border-bottom: 2px solid var(--orange);
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+  }
 }
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-}
-.wrap {
-  max-width: 1180px;
-  padding-top: 3.5rem;
-}
-.grid {
-  display: flex;
-  flex-wrap: wrap;
+.arrow {
+	position: relative;
+	background: #cdcdcd;
+  height: 1.25rem;
+  display: block;
+  margin-right: 1.5rem;
+  &:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(205, 205, 205, 0);
+    border-top-color: #cdcdcd;
+    border-width: 9px;
+    margin-left: -9px;
+  }
 }
 section { 
-  margin-bottom: 35px;
+  margin-bottom: 2.1875rem;
 }
+
 h4 {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.25rem;
   border-bottom: 2px solid var(--grey-md);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
+.DATA_SET h4 {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
 h5.data-label {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   font-weight: normal;
   margin: 0 0 0.75rem;
 }
 .data-val {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 500;
   color: var(--blue)
 }
-// @TODO: some fields are right aligned others are left aligned
+
 .cdk-table {
-  font-size: 14px;
-  .mdc-data-table__cell, 
-  .mdc-data-table__header-cell {
-    padding: 0 8px;
-  }
-  .cdk-header-row,
-  .cdk-footer-row {
-    height: 40px
-  }
-  td.cdk-footer-cell {
-    border-top: 1px solid var(--grey-dark);
-    border-top: 1px solid var(--grey-dark);
-  }
+  font-size: 0.875rem;
+  width: 100%;
+ 
   th {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
-    line-height: 14px;
+    line-height: 0.875rem;
     white-space: nowrap;
     background-color: white;
     color: var(--blue);
@@ -86,15 +92,31 @@ h5.data-label {
       background-color: var(--grey-md);
     }
   }
-
+  .cdk-header-row,
+  .cdk-footer-row {
+    height: 2.5rem
+  }
   .cdk-row {
     height: 2.5rem;
   }
-
-}
-.DATA_SET {
-  h4 {
-    font-size: 18px;
-    font-weight: 400;
+  td.cdk-cell,
+  th.cdk-header-cell {
+    text-align: right;
+  }
+  td.cdk-cell.channel,
+  th.cdk-header-cell.channel,
+  td.cdk-cell.segment,
+  th.cdk-header-cell.segment,
+  td.cdk-cell.tactic,
+  th.cdk-header-cell.tactic {
+    text-align: left;
+  }
+  td.cdk-footer-cell {
+    border-top: 1px solid var(--grey-dark);
+    border-top: 1px solid var(--grey-dark);
+  }
+  .mdc-data-table__cell, 
+  .mdc-data-table__header-cell {
+    padding: 0 0.5rem;
   }
 }

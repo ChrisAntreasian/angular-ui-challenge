@@ -1,3 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -50,19 +51,38 @@ $metrics-page-theme: mat.define-light-theme((
 @include mat.all-component-themes($metrics-page-theme);
 
 /* You can add global styles to this file, and also import other style files */
+:root {
+--blue: #231090;
+--orange: #e96c30;
+--grey-dark: #31383f;
+--grey-md: #f6f6f6;
+}
 
 html, body { height: 100%; }
 body { 
   margin: 0; 
   font-family: "Helvetica Neue", sans-serif; 
+  font-size: 16px;
   color: var(--grey-dark)
 }
-:root {
-  --blue: #231090;
-  --orange: #e96c30;
-  --grey-dark: #31383f;
-  --grey-md: #f6f6f6;
-  --grey-light: #d2d6da
-  --grey-light: #eee;
 
-}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+  }
+  .flex-between {
+    display: flex;
+    justify-content: space-between;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .wrap {
+    max-width: 1180px;
+    padding-top: 3.5rem;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
